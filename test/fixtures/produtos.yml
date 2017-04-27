@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  string: MyString
+  valor: MyString
+  float: MyString
+  quantidade: MyString
+  integer: MyString
+
+two:
+  nome: MyString
+  string: MyString
+  valor: MyString
+  float: MyString
+  quantidade: MyString
+  integer: MyString
