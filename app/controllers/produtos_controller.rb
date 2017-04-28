@@ -1,4 +1,4 @@
-class ProdutosController < ApplicationController
+class ProdutosController < AdminController
   before_action :set_produto, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate
   # GET /produtos

@@ -1,4 +1,4 @@
-class AlunosController < ApplicationController
+class AlunosController < AdminController
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
   # GET /alunos
   # GET /alunos.json
