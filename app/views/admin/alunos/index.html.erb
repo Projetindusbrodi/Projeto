@@ -18,9 +18,9 @@
         <td><%= aluno.ra %></td>
         <td><%= aluno.nome %></td>
 
-        <td><%= link_to 'Mostrar', aluno %></td>
-        <td><%= link_to 'Editar', edit_aluno_path(aluno) %></td>
-        <td><%= link_to 'Excluir', aluno, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Mostrar', admin_aluno_path(aluno) %></td>
+        <td><%= link_to 'Editar', edit_admin_aluno_path(aluno) %></td>
+        <td><%= link_to 'Excluir', admin_aluno_path(aluno), method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'Novo Aluno', new_aluno_path %>
+<%= link_to 'Novo Aluno', new_admin_aluno_path %>

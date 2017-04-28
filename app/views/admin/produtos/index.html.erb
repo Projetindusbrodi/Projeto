@@ -18,9 +18,9 @@
         <td><%= produto.nome %></td>
         <td><%= produto.valor %></td>
         <td><%= produto.quantidade %></td>
-        <td><%= link_to 'Mostrar', produto %></td>
-        <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
-        <td><%= link_to 'Excluir', produto, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+        <td><%= link_to 'Mostrar', admin_produto_path(produto) %></td>
+        <td><%= link_to 'Editar', edit_admin_produto_path(produto) %></td>
+        <td><%= link_to 'Excluir', admin_produto_path(produto), method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'Novo Produto', new_produto_path %>
+<%= link_to 'Novo Produto', new_admin_produto_path %>

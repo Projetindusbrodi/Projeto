@@ -1,4 +1,4 @@
-<%= form_for(produto) do |f| %>
+<%= form_for([:admin, produto]) do |f| %>
   <% if produto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(produto.errors.count, "error") %> impediram este produto de ser salvo:</h2>
