@@ -1,7 +1,7 @@
 module Admin
   class ProdutosController < AdminController
     before_action :set_produto, only: [:show, :edit, :update, :destroy]
-    before_filter :authenticate
+    before_action :authenticate_user!
     # GET /produtos
     # GET /produtos.json
     def index
