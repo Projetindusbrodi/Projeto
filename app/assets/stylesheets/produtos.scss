@@ -1,3 +1,29 @@
 // Place all the styles related to the Produtos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product-list {
+  td:nth-child(1) {
+      width: 200px;
+  }
+
+  td:nth-child(2) {
+      width: 50px;
+  }
+
+  td:nth-child(3) {
+      width: 100px;
+  }
+
+  td:nth-child(4) {
+      width: 20px;
+  }
+
+  td:nth-child(5) {
+      width: 20px;
+  }
+
+  td:nth-child(6) {
+      width: 20px;
+  }
+}

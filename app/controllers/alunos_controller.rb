@@ -1,6 +1,5 @@
 class AlunosController < ApplicationController
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
-
   # GET /alunos
   # GET /alunos.json
   def index

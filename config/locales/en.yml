@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      aluno:
+        password: 'Senha'
+    errors:
+      messages:
+        too_short: 'muito curta. Mínimo 6 caractes e Máximo 20 caracteres.'

@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427192618) do
+ActiveRecord::Schema.define(version: 20170428184916) do
 
   create_table "alunos", force: :cascade do |t|
     t.integer  "ra"
     t.string   "nome"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   create_table "produtos", force: :cascade do |t|
