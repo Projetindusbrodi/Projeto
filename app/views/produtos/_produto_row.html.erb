@@ -9,7 +9,7 @@
       <%= form_for order_item do |f| %>
       <h4 class="text-right">Preço unitário: <span style="color: green"><%= number_to_currency produto.valor %></span></h4>
         <div class="input-group">
-          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: produto.quantidade %>
           <div class="input-group-btn">
             <%= f.hidden_field :produto_id, value: produto.id %>
             <%= f.submit "Adicionar no Carrinho", class: "btn btn-primary" %>

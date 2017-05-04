@@ -10,9 +10,20 @@ class Order < ApplicationRecord
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
+  def total
+    order_items.reduce(0) do |sum, order_item|
+      sum += order_item.total_price
+    end
+  end
+
   private
 
   def update_subtotal
     @subtotal = subtotal
   end
+
+  def update_total
+    @total = total
+  end
+
 end

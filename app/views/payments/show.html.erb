@@ -1,0 +1,13 @@
+<h1>Pagamento efetuado com sucesso</h1>
+
+<p>
+  Obrigado! Acabamos de roubar seu dinheiro. Anote aí o seu número de pedido:
+</p>
+
+<h2>
+  <%= @payment_id %>
+</h2>
+
+<%= link_to produtos_path do %>
+  <i class="fa fa-6 fa-home" aria-hidden="true"></i> Voltar
+<% end %>
