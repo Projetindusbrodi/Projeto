@@ -1,22 +1,18 @@
-<!-- <div class="well"> -->
 
-  <!-- <div class="row">
-    <div class="col-xs-8">
-      <h4><%= produto.nome %></small></h4>
-    </div> -->
-    <!-- <div class="col-xs-4"> -->
 
       <%= form_for order_item do |f| %>
-      <h4 class="text-right">Preço unitário: <span style="color: green"><%= number_to_currency produto.valor %></span></h4>
+      <% if produto.quantidade == 0 %>
+      <div class="input-group-btn">
+        <%= f.hidden_field :produto_id, value: produto.id %>
+        <%= f.submit "Avise-me quando disponível", class: "btn btn-primary" %>
+      </div>
+      <% else %>
+      <h4 class="text-right">Preço unitário: <span style="color: green">R<%= number_to_currency produto.valor %></span></h4>
         <div class="input-group">
           <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: produto.quantidade %>
           <div class="input-group-btn">
-            <%= f.hidden_field :produto_id, value: produto.id %>
-            <%= f.submit "Adicionar no Carrinho", class: "btn btn-primary" %>
+            <%= f.button "Adicionar no Carrinho", class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
-    </div>
-
-  </div>
-<!-- </div> -->
+    <% end %>

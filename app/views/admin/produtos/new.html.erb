@@ -2,4 +2,6 @@
 
 <%= render 'form', produto: @produto %>
 
-<%= link_to 'Voltar', admin_produtos_path %>
+<%= link_to admin_produtos_path do %>
+  <i class="fa fa-6 fa-home" aria-hidden="true"></i> Voltar
+<% end %>

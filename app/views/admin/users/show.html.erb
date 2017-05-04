@@ -16,4 +16,7 @@
 </p>
 
 <%= link_to 'Editar', edit_admin_user_path(@aluno) %> |
-<%= link_to 'Voltar', admin_users_path %>
+
+<%= link_to admin_users_path do %>
+  <i class="fa fa-6 fa-home" aria-hidden="true"></i> Voltar
+<% end %>
