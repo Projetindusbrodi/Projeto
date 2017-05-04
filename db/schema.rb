@@ -10,15 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428201521) do
+ActiveRecord::Schema.define(version: 20170502181531) do
 
-  create_table "alunos", force: :cascade do |t|
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "produto_id"
+    t.integer  "order_id"
+    t.decimal  "unit_price",  precision: 12, scale: 3
+    t.integer  "quantity"
+    t.decimal  "total_price", precision: 12, scale: 3
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["produto_id"], name: "index_order_items_on_produto_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "number_order"
     t.integer  "ra"
-    t.string   "nome"
-    t.string   "password"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
+    t.float    "valor"
+    t.text     "descricao"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["ra"], name: "index_orders_on_ra"
+  end
+
+  create_table "orders_produtos", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "produto_id"
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -28,21 +46,25 @@ ActiveRecord::Schema.define(version: 20170428201521) do
     t.text     "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "ra"
+    t.string   "name"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

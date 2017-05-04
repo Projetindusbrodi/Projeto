@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Produtos</h1>
+
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Estoque</th>
+      <th>Opção</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= image_tag(produto.image, size: '100x100', class:"img-rounded") %></td>
+        <td><%= produto.nome %></td>
+        <td>R$<%= produto.valor %></td>
+        <td><%= produto.quantidade %></td>
+        <td><%= link_to 'Mostrar', produto %></td>
+        <td><%= render "produto_row", produto: produto, order_item: @order_item %><td>
+        <td><%#= link_to image_tag("/image/plussymbol.png"), produto%></td>
+        <td><%#= link_to image_tag("/image/minusymbol.png"), produto%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

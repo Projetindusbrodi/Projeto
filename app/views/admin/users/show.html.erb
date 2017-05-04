@@ -7,7 +7,7 @@
 
 <p>
   <strong>Nome:</strong>
-  <%= @aluno.nome %>
+  <%= @aluno.name %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @aluno.password %>
 </p>
 
-<%= link_to 'Editar', edit_admin_aluno_path(@aluno) %> |
-<%= link_to 'Voltar', admin_alunos_path %>
+<%= link_to 'Editar', edit_admin_user_path(@aluno) %> |
+<%= link_to 'Voltar', admin_users_path %>

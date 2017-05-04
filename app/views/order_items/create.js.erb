@@ -1,0 +1,5 @@
+<% if @order.errors.any? || @order_item.errors.any? %>
+alert("not valid.")
+<% else %>
+  $(".shopping_cart-text").html("<%= escape_javascript(render 'layouts/shopping_cart_text') %>")
+<% end %>

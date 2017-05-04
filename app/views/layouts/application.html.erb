@@ -6,20 +6,54 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>ShoppingCartExample</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <% if request.ssl? %>
+      <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+      <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <%= nav_bar brand:"MAC-FEI",  brand_link: root_url do %>
+    <ul class="navbar-for navbar-right">
     <% if user_signed_in? %>
       <li>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      Login com <strong><%= current_user.email %></strong>.
+      <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to('Carrinho', shopping_cart_path, class: "btn btn-warning") %>
+      <%= link_to('Sair', destroy_user_session_path, :method => :delete, class: "btn btn-danger") %>
       </li>
     <% else %>
       <li>
-      <%= link_to('Login', new_user_session_path)  %>
+      <%= link_to('Login', new_user_session_path, class: "btn btn-default")  %>
+      <%= link_to "Cadastre-se", new_user_registration_path, :class => 'navbar-link'  %> |
       </li>
     <% end %>
+  </ul>
+ <% end %>
+
+
+
+ <!-- <div class="container">
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p> -->
+
+    <!-- <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1><%= link_to "My Store", root_path %></h1>
+      </div>
+
+    </div> -->
+    <hr>
     <%= yield %>
+    </div>
   </body>
 </html>

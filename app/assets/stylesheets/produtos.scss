@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.product-list {
+ .product-list {
   td:nth-child(1) {
-      width: 200px;
+      width: 20px;
   }
 
   td:nth-child(2) {
@@ -25,5 +25,18 @@
 
   td:nth-child(6) {
       width: 20px;
+  }
+}
+
+
+.container {
+  .navbar-brand {
+    font-size: 50px;
+    font-family: monospace;
+    color: #3c7a87;
+  }
+
+  .navbar-for {
+    list-style-type: none;
   }
 }

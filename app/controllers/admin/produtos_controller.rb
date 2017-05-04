@@ -6,6 +6,7 @@ module Admin
     # GET /produtos.json
     def index
       @produtos = Produto.all
+      @order_item = current_order.order_items.new
     end
 
     # GET /produtos/1
@@ -70,7 +71,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def produto_params
-        params.require(:produto).permit(:nome, :valor, :quantidade, :descricao)
+        params.require(:produto).permit(:nome, :valor, :quantidade, :descricao, :image)
       end
   end
 end

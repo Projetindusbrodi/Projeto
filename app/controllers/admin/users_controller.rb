@@ -1,10 +1,11 @@
 module Admin
-  class AlunosController < AdminController
-    before_action :set_aluno, only: [:show, :edit, :update, :destroy]
+  class UsersController < AdminController
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
     # GET /alunos
     # GET /alunos.json
     def index
-      @alunos = Aluno.all
+      @alunos = User.all
     end
 
     # GET /alunos/1
@@ -14,7 +15,7 @@ module Admin
 
     # GET /alunos/new
     def new
-      @aluno = Aluno.new
+      @aluno = User.new
     end
 
     # GET /alunos/1/edit
@@ -24,11 +25,11 @@ module Admin
     # POST /alunos
     # POST /alunos.json
     def create
-      @aluno = Aluno.new(aluno_params)
+      @aluno = User.new(aluno_params)
 
       respond_to do |format|
         if @aluno.save
-          format.html { redirect_to admin_aluno_path(@aluno), notice: 'Aluno was successfully created.' }
+          format.html { redirect_to admin_user_path(@aluno), notice: 'Aluno was successfully created.' }
           format.json { render :show, status: :created, location: @aluno }
         else
           format.html { render :new }
@@ -42,7 +43,7 @@ module Admin
     def update
       respond_to do |format|
         if @aluno.update(aluno_params)
-          format.html { redirect_to admin_aluno_path(@aluno), notice: 'Aluno was successfully updated.' }
+          format.html { redirect_to admin_user_path(@aluno), notice: 'Aluno was successfully updated.' }
           format.json { render :show, status: :ok, location: @aluno }
         else
           format.html { render :edit }
@@ -56,20 +57,20 @@ module Admin
     def destroy
       @aluno.destroy
       respond_to do |format|
-        format.html { redirect_to admin_alunos_url, notice: 'Aluno was successfully destroyed.' }
+        format.html { redirect_to admin_users_url, notice: 'Aluno was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_aluno
-        @aluno = Aluno.find(params[:id])
+      def set_user
+        @aluno = User.find(params[:id])
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def aluno_params
-        params.require(:aluno).permit(:ra, :nome, :password)
+        params.require(:user).permit(:ra, :name, :password, :email)
       end
   end
 end
