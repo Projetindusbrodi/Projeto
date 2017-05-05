@@ -1,18 +1,16 @@
-
-
-      <%= form_for order_item do |f| %>
-      <% if produto.quantidade == 0 %>
-      <div class="input-group-btn">
-        <%= f.hidden_field :produto_id, value: produto.id %>
-        <%= f.submit "Avise-me quando disponível", class: "btn btn-primary" %>
-      </div>
-      <% else %>
-      <h4 class="text-right">Preço unitário: <span style="color: green">R<%= number_to_currency produto.valor %></span></h4>
-        <div class="input-group">
-          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: produto.quantidade %>
-          <div class="input-group-btn">
-            <%= f.button "Adicionar no Carrinho", class: "btn btn-primary" %>
-          </div>
+<% if produto.quantidade == 0 %>
+  <div class="input-group-btn">
+    <%= button_to "Avise-me quando disponível", notifications_path, remote: false, class: "btn btn-primary", params: { produto_id: produto.id } %>
+  </div>
+<% else %>
+  <%= form_for order_item do |f| %>
+    <h4 class="text-right">Preço unitário: <span style="color: green">R<%= number_to_currency produto.valor %></span></h4>
+      <div class="input-group">
+        <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: produto.quantidade %>
+        <div class="input-group-btn">
+          <%= f.hidden_field :produto_id, value: produto.id %>
+          <%= f.submit "Adicionar no Carrinho", class: "btn btn-primary" %>
         </div>
-      <% end %>
-    <% end %>
+      </div>
+  <% end %>
+<% end %>

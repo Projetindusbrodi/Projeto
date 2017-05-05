@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :users
     resources :produtos
   end
-  resources :produtos
+  resources :produtos, only: [:index, :show]
   resource :shopping_cart, only: [:show]
   resource :payments, only: [:create, :show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :notifications, only: [:create]
 end

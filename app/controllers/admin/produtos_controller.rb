@@ -43,6 +43,8 @@ module Admin
     # PATCH/PUT /produtos/1.json
     def update
       respond_to do |format|
+        Notification.notify_user(@produto, produto_params[:quantidade].to_i)
+
         if @produto.update(produto_params)
           format.html { redirect_to admin_produto_path(@produto), notice: 'Produto was successfully updated.' }
           format.json { render :show, status: :ok, location: @produto }

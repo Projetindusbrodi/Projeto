@@ -9,7 +9,7 @@
 <% end %>
 <% if @order_items.size == 0 %>
   <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+    Seu carrinho está sem produtos.  Por favor <%= link_to "volte", root_path %> volte a adicione produtos.
   </p>
 <% else %>
   <% @order_items.each do |order_item| %>
@@ -18,7 +18,7 @@
   <h4 class="text-right">Total: <span style="color: green">R$
     <%= current_order.total %>
   </span></h4>
-  <div class="btn btn-success btn-lg", type="submit">
-    <%= button_to "Finalizar compra", payments_path %>
-  </div>
+
+    <%= button_to " Finalizar compra", payments_path, class:"btn btn-success btn-lg"  %>
+
 <% end %>

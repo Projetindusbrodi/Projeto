@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style media="screen">
+      .product {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %>, seu produto chegou e está disponível para compra!</h1>
+
+    <div class="product">
+      <p>Produto: <%= @product.nome %></p>
+      <p>Preço: R<%= number_to_currency @product.valor %></p>
+      <p>Quantidade no estoque: <%= @new_quantity %></p>
+      <!-- <p><%= image_tag @product.image %></p> -->
+      <p>Confira já!</p>
+    </div>
+
+  </body>
+</html>

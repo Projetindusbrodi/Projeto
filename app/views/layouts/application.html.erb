@@ -29,8 +29,14 @@
       <li>
       Login com <strong><%= current_user.email %></strong>.
       <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to('Carrinho', shopping_cart_path, class: "btn btn-warning") %>
-      <%= link_to('Sair', destroy_user_session_path, :method => :delete, class: "btn btn-danger") %>
+
+      <%= link_to(shopping_cart_path, class: "btn btn-warning shopping-cart-button") do %>
+        <i class="fa fa-shopping-cart"></i> Carrinho
+      <% end %>
+
+      <%= link_to(destroy_user_session_path, :method => :delete, class: "btn btn-danger sign-out-button")do  %>
+        <i class="fa fa-sign-out"></i> Sair
+      <% end %>
       </li>
     <% else %>
       <li>
@@ -57,5 +63,6 @@
     <hr>
     <%= yield %>
     </div>
+  
   </body>
 </html>
