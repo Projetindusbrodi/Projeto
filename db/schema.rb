@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504195815) do
+ActiveRecord::Schema.define(version: 20170508160538) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "produto_id"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20170504195815) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "ra"
     t.string   "name"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
