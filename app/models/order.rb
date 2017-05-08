@@ -16,6 +16,10 @@ class Order < ApplicationRecord
     end
   end
 
+  def count_product(product_id)
+    order_items.detect { |item| item.produto_id == product_id }.quantity
+  end
+
   private
 
   def update_subtotal

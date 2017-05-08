@@ -1,20 +1,26 @@
 class OrderItemsController < ApplicationController
   def create
     order = current_order
+    product_id = order_item_params['produto_id'].to_i
 
-    product = order.order_items.select { |item| item.produto_id == order_item_params['produto_id'].to_i}.first
+    product = order.order_items.select { |item| item.produto_id == product_id.to_i}.first
 
-    if product
-      product.update(quantity: product.quantity + 1)
+    check = Produto.find(order_item_params['produto_id'].to_i)
+    if order_item_params['quantity'].to_i + order.count_product(product_id) > check.quantidade
+      redirect_to produtos_path, flash: { alert: 'Sem estoque' }
     else
-      order_item = order.order_items.new(order_item_params)
+      if product
+        product.update(quantity: product.quantity + 1)
+      else
+        order_item = order.order_items.new(order_item_params)
+      end
+
+      order.user = current_user
+      order.save
+
+      session[:order_id] = order.id
+      redirect_to shopping_cart_path
     end
-
-    order.user = current_user
-    order.save
-
-    session[:order_id] = order.id
-    redirect_to shopping_cart_path
   end
 
   def update
