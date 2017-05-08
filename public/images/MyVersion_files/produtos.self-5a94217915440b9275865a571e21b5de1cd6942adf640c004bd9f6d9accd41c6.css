@@ -1,0 +1,51 @@
+/* line 4, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.background {
+  background-image: url(/images/food-wallpaper-24.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  color: black;
+  left: 0;
+  overflow: auto;
+  padding: 3em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+/* line 20, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.product-list td:nth-child(1) {
+  width: 20px;
+}
+/* line 24, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.product-list td:nth-child(2) {
+  width: 50px;
+}
+/* line 28, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.product-list td:nth-child(3) {
+  width: 100px;
+}
+/* line 32, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.product-list td:nth-child(4) {
+  width: 20px;
+}
+/* line 36, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.product-list td:nth-child(5) {
+  width: 20px;
+}
+/* line 40, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.product-list td:nth-child(6) {
+  width: 20px;
+}
+
+/* line 47, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.container .navbar-brand {
+  font-size: 50px;
+  font-family: monospace;
+  color: #3c7a87;
+}
+/* line 53, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/produtos.scss */
+.container .navbar-for {
+  list-style-type: none;
+}

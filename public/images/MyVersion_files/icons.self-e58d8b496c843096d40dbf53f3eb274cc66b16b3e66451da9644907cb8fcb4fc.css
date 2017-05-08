@@ -1,0 +1,30 @@
+/* line 1, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/icons.scss */
+.fa-home {
+  font-size: 20px !important;
+}
+
+/* line 5, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/icons.scss */
+.trash-product-from-cart {
+  font-family: arial;
+  font-size: 18px;
+  color: #fff !important;
+}
+
+/* line 11, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/icons.scss */
+.shopping-cart-button {
+  font-size: 18px !important;
+  color: white !important;
+  font-family: arial;
+}
+
+/* line 17, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/icons.scss */
+.sign-out-button {
+  font-size: 18px !important;
+  color: white !important;
+}
+
+/* line 22, /Users/youse/Desktop/FEI/EngSoftware/MyVersion/app/assets/stylesheets/icons.scss */
+.fa-check {
+  font-size: 20px !important;
+  color: white !important;
+}

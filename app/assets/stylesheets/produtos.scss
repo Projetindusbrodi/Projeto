@@ -1,20 +1,20 @@
-// Place all the styles related to the Produtos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.background{
- background-image: url(/images/food-wallpaper-24.jpg);
- background-repeat: no-repeat;
- background-size:100%;
- bottom: 0;
- color: black;
- left: 0;
- overflow: auto;
- padding: 3em;
- position: absolute;
- right: 0;
- text-align: center;
- top: 0;
-}
+// // Place all the styles related to the Produtos controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+// .background{
+//  background-image: url(/images/food-wallpaper-24.jpg);
+//  background-repeat: no-repeat;
+//  background-size:80%;
+//  bottom: 0;
+//  color: black;
+//  left: 0;
+//  overflow: auto;
+//  padding: 3em;
+//  position: absolute;
+//  right: 0;
+//  text-align: center;
+//  top: 0;
+// }
 
  .product-list {
   td:nth-child(1) {

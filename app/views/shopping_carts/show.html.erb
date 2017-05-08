@@ -15,7 +15,7 @@
   <% @order_items.each do |order_item| %>
     <%= render 'shopping_carts/shopping_cart_row', produto: order_item.produto, order_item: order_item, show_total: true %>
   <% end %>
-  <h4 class="text-right">Total: <span style="color: green">R$
+  <h4 class="text-right"><span style="background-color: white">Total: <span style="color: green">R$
     <%= current_order.total %>
   </span></h4>
 

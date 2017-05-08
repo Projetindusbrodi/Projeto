@@ -4,7 +4,7 @@
   </div>
 <% else %>
   <%= form_for order_item do |f| %>
-    <h4 class="text-right">Preço unitário: <span style="color: green">R<%= number_to_currency produto.valor %></span></h4>
+    <!-- <h4 class="text-right"><span style="background-color: white"> Preço unitário: <span style="color :green">R<%= number_to_currency produto.valor %></span></h4> -->
       <div class="input-group">
         <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, max: produto.quantidade %>
         <div class="input-group-btn">
