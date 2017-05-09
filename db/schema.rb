@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508160538) do
+ActiveRecord::Schema.define(version: 20170508172251) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "produto_id"
@@ -54,9 +60,11 @@ ActiveRecord::Schema.define(version: 20170508160538) do
     t.float    "valor"
     t.integer  "quantidade"
     t.text     "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "image"
+    t.integer  "department"
+    t.integer  "department_id"
   end
 
   create_table "users", force: :cascade do |t|

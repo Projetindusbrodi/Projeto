@@ -17,10 +17,12 @@ module Admin
     # GET /produtos/new
     def new
       @produto = Produto.new
+      @departments = Department.all
     end
 
     # GET /produtos/1/edit
     def edit
+      @departments = Department.all
     end
 
     # POST /produtos
@@ -73,7 +75,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def produto_params
-        params.require(:produto).permit(:nome, :valor, :quantidade, :descricao, :image)
+        params.require(:produto).permit(:nome, :valor, :quantidade, :descricao, :image, :department_id)
       end
   end
 end

@@ -1,10 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <h1>Produtos</h1>
 
 <table class="product-list">
   <thead>
     <tr>
+      <th>Departamento</th>
       <th>Imagem</th>
       <th>Nome</th>
       <th>Valor</th>
@@ -16,6 +19,7 @@
   <tbody>
     <% @produtos.each do |produto| %>
       <tr>
+        <td><%= produto.department %></td>
         <td><%= image_tag(produto.image, size: "100x100", class:"img-rounded")%></td>
         <td><%= produto.nome %></td>
         <td>R$<%= produto.valor %></td>

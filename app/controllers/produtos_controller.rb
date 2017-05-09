@@ -3,8 +3,14 @@ class ProdutosController < ApplicationController
   # GET /produtos
   # GET /produtos.json
   def index
-    @produtos = Produto.all
+    if (params[:department_id])
+      @produtos = Produto.where(department_id: params[:department_id])
+    else
+      @produtos = Produto.all
+    end
+
     @order_item = current_order.order_items.new
+    @departments = Department.all
   end
 
   # GET /produtos/1

@@ -1,3 +1,12 @@
+<div class="btn-group btn-group-justified">
+  <a href="produtos#index" class="btn btn-primary", style="color: white">Todos os produtos</a>
+  <%= link_to 'Salgados', produtos_path(department_id: Department.find_by(name: 'Salgados')), class: 'btn btn-primary', style: 'color: white' %>
+  <%= link_to 'Lanches', produtos_path(department_id: Department.find_by(name: 'Lanches')), class: 'btn btn-primary', style: 'color: white' %>
+  <%= link_to 'Refeições', produtos_path(department_id: Department.find_by(name: 'Refeições')), class: 'btn btn-primary', style: 'color: white' %>
+  <%= link_to 'Bebidas', produtos_path(department_id: Department.find_by(name: 'Bebidas')), class: 'btn btn-primary', style: 'color: white' %>
+  <%= link_to 'Doces', produtos_path(department_id: Department.find_by(name: 'Doces')), class: 'btn btn-primary', style: 'color: white' %>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <% if alert %>
@@ -6,8 +15,11 @@
   </div>
 <% end %>
 
+<!-- <div class=“form-group”>
+ <%= select_tag "Departamento", options_from_collection_for_select(@departments, "id", "name")%>
+</div> -->
 
-<h1>Produtos</h1>
+<span style= "text-align: center"><h2>Todos os produtos</h2></span><br><br>
 
 <table class="table table-condensed table-hover">
   <thead>

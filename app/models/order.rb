@@ -17,7 +17,8 @@ class Order < ApplicationRecord
   end
 
   def count_product(product_id)
-    order_items.detect { |item| item.produto_id == product_id }.quantity
+    product = order_items.detect { |item| item.produto_id == product_id }
+    product&.quantity || 0
   end
 
   private
