@@ -5,7 +5,7 @@ class CreateProdutos < ActiveRecord::Migration[5.0]
       t.float :valor
       t.integer :quantidade
       t.text :descricao
-      
+
       t.timestamps
     end
   end

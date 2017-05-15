@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/> -->
     <title>MyVersion</title>
     <%= csrf_meta_tags %>
 
@@ -21,6 +23,7 @@
   </head>
 
   <body>
+    <div class="hidden-xs">
     <%= nav_bar brand:"MAC-FEI",  brand_link: root_url do %>
     <ul class="navbar-for navbar-right">
     <% if user_signed_in? %>
@@ -44,23 +47,54 @@
     <% end %>
   </ul>
  <% end %>
-
-
-
- <!-- <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p> -->
-
-    <!-- <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <h1><%= link_to "My Store", root_path %></h1>
-      </div>
-
-    </div> -->
     <hr>
     <%= yield %>
     </div>
+  </div>
 
+  <div class="hidden-lg">
+    <%= nav_bar brand:"MAC-FEI",  brand_link: root_url do %>
+    <br><br><ul class="nav navbar-nav navbar-left">
+    <% if user_signed_in? %>
+      <li>
+      <br>Login com <strong><%= current_user.email %></strong>.
+      <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %>
+
+      <%= link_to(shopping_cart_path, class: "btn btn-warning btn-xs shopping-cart-button") do %>
+        <i class="fa fa-shopping-cart"></i> Carrinho
+      <% end %>
+
+      <%= link_to(destroy_user_session_path, :method => :delete, class: "btn btn-danger btn-xs sign-out-button")do  %>
+        <i class="fa fa-sign-out"></i> Sair
+      <% end %>
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-primary">Selecione a categoria</button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="produtos?department_id=8">Promoções</a></li>
+          <li><a href="produtos?department_id=4">Salgados</a></li>
+          <li><a href="produtos?department_id=5">Lanches</a></li>
+          <li><a href="produtos?department_id=6">Refeições</a></li>
+          <li><a href="produtos?department_id=3">Bebidas</a></li>
+          <li><a href="produtos?department_id=7">Doces</a></li>
+          <li><a href="produtos">Todos os produtos</a></li>
+        </ul>
+      </div>
+
+      </li>
+    <% else %>
+      <li>
+      <%= link_to('Login', new_user_session_path, class: "btn btn-default")  %>
+      <%= link_to "Cadastre-se", new_user_registration_path, :class => 'navbar-link'  %> |
+      </li>
+    <% end %>
+  </ul>
+ <% end %>
+    <hr>
+    <%= yield %>
+    </div>
+  </div>
   </body>
 </html>
