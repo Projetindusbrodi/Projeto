@@ -9,7 +9,7 @@ class ProdutosController < ApplicationController
       @produtos = Produto.all
     end
 
-    @order_item = current_order.order_items.new
+    @shopping_cart_item = current_shopping_cart.shopping_cart_items.new
     @departments = Department.all
   end
 

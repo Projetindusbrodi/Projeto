@@ -6,7 +6,7 @@ module Admin
     # GET /produtos.json
     def index
       @produtos = Produto.all
-      @order_item = current_order.order_items.new
+      @shopping_cart_item = current_shopping_cart.shopping_cart_items.new
     end
 
     # GET /produtos/1

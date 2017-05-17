@@ -1,22 +1,22 @@
-<% if !@order_item.nil? && @order_item.errors.any? %>
+<% if !@shopping_cart_item.nil? && @shopping_cart_item.errors.any? %>
   <div class="alert alert-danger">
     <ul>
-    <% @order_item.errors.full_messages.each do |msg| %>
+    <% @shopping_cart_item.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
-<% if @order_items.size == 0 %>
+<% if @shopping_cart_items.size == 0 %>
   <p class="text-center">
     Seu carrinho está sem produtos.  Por favor <%= link_to "volte", root_path %> e adicione produtos.
   </p>
 <% else %>
-  <% @order_items.each do |order_item| %>
-    <%= render 'shopping_carts/shopping_cart_row', produto: order_item.produto, order_item: order_item, show_total: true %>
+  <% @shopping_cart_items.each do |shopping_cart_item| %>
+    <%= render 'shopping_carts/shopping_cart_row', produto: shopping_cart_item.produto, shopping_cart_item: shopping_cart_item, show_total: true %>
   <% end %>
   <h4 class="text-right">Total: <span style="color: green">R$
-    <%= current_order.total %>
+    <%= current_shopping_cart.total %>
   </span></h4>
     <%= button_to " Finalizar compra", payments_path, class:"btn btn-success btn-lg", style:"float: right;"  %>
     <%= button_to " Comprar mais", root_path, class:"btn btn-primary btn-lg", style:"float: right;", method: :get %>

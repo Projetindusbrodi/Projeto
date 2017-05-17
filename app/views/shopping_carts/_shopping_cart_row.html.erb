@@ -6,11 +6,11 @@
     </div>
     <div class="col-xs-4">
 
-      <%= form_for order_item do |f| %>
-        <h4 class="text-right">Preço unitário: <span style="color: green">R<%= number_to_currency order_item.unit_price %></span></h4>
+      <%= form_for shopping_cart_item do |f| %>
+        <h4 class="text-right">Preço unitário: <span style="color: green">R<%= number_to_currency shopping_cart_item.unit_price %></span></h4>
         <div class="row">
           <div class="col-xs-4">
-            <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1, max: produto.quantidade %>
+            <%= f.number_field :quantity, value: shopping_cart_item.quantity.to_i, class: "form-control", min: 1, max: produto.quantidade %>
             <%= f.hidden_field :produto_id, value: produto.id %>
           </div>
           <div class="col-xs-8 text-right">
@@ -19,13 +19,13 @@
                 <i class='fa fa-refresh'></i> Atualizar quantidade
               <% end %>
 
-              <%= link_to order_item, { data: { confirm: "Are you sure you wish to delete the produto '#{order_item.produto.nome}' from your cart?" }, method: :delete, class: "btn btn-danger trash-product-from-cart"} do %>
+              <%= link_to shopping_cart_item, { data: { confirm: "Are you sure you wish to delete the produto '#{shopping_cart_item.produto.nome}' from your cart?" }, method: :delete, class: "btn btn-danger trash-product-from-cart"} do %>
                 <i class="fa fa-trash-o"></i> Deletar
               <% end %>
             </div>
           </div>
         </div>
-        <h4 class="text-right">Preço total desse produto: <span style="color: green">R<%= number_to_currency order_item.total_price %></span></h4>
+        <h4 class="text-right">Preço total desse produto: <span style="color: green">R<%= number_to_currency shopping_cart_item.total_price %></span></h4>
       <% end %>
     </div>
 

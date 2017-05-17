@@ -37,7 +37,7 @@
         <td>R<%= number_to_currency(produto.valor, unit: "$ ")%></td>
         <td><%= produto.quantidade %></td>
         <td><%= link_to 'Ver mais', produto %></td>
-        <td><%= render "produto_row", produto: produto, order_item: @order_item %><td>
+        <td><%= render "produto_row", produto: produto, shopping_cart_item: @shopping_cart_item %><td>
       </tr>
     <% end %>
   </tbody>
@@ -63,7 +63,7 @@
     <div class="row">
       <br><div class="col-xs-6"><span style="font-weight: bold"><%= produto.nome %></span></div>
       <div class="text-right">Estoque: <span style="color: red"><%= produto.quantidade %></span></div>
-      <%= render "produto_row", produto: produto, order_item: @order_item %>
+      <%= render "produto_row", produto: produto, shopping_cart_item: @shopping_cart_item %>
       <br>
     </div>
   <% end %>
