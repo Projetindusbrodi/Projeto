@@ -1,8 +1,33 @@
-<% @orders.each do |order| %>
-  <%= order.id %><br>
-  <%= order.created_at %><br>
-  <% order.shopping_cart_items.each do |shopping_cart_item| %>
-    <%= shopping_cart_item.product.nome %><br>
-    <%= shopping_cart_item.total_price %><br>
-  <%end%>
-<% end %>
+<h2 class="text-center">Todos os pedidos</h2>
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Criado em</th>
+      <th>Produtos</th>
+    </tr>
+  </thead>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.payment_id %></td>
+      <td><%= order.created_at %></td>
+      <%
+        descriptions = order.items.map do |item|
+          "#{product_name(item['produto_id']).nome} -  R$(#{'%.2f' % item['unit_price']}) x #{item['quantity']} unidade(s). Total desse produto: R$#{'%.2f' % item['total_price']}"
+        end
+        
+        total = order.items.map do |item|
+          item['total_price'].to_f
+        end.sum
+      %>
+      <td>
+        <% descriptions.each do |description| %>
+          <%= description %><br>
+        <% end %><br>
+        Total do pedido: R<%= number_to_currency total %>
+      </td>
+
+    </tr>
+  <% end %>
+</table>
+<%= button_to "Voltar aos produtos", root_path, class:"btn btn-primary btn-lg", style:"float: right;", method: :get %>

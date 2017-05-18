@@ -30,7 +30,11 @@
     <% if user_signed_in? %>
       <li>
       Login com <strong><%= current_user.email %></strong>.
-      <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %>
+
+      <%= link_to(orders_path, class: "btn btn-info shopping-cart-button") do %>
+        <i class="fa fa-book"></i> Meus pedidos
+      <% end %>
 
       <%= link_to(shopping_cart_path, class: "btn btn-warning shopping-cart-button") do %>
         <i class="fa fa-shopping-cart"></i> Carrinho
@@ -60,6 +64,10 @@
       <li>
       <br>Login com <strong><%= current_user.email %></strong>.
       <%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %>
+
+      <%= link_to(orders_path, class: "btn btn-info shopping-cart-button") do %>
+        <i class="fa fa-book"></i> Meus pedidos
+      <% end %>
 
       <%= link_to(shopping_cart_path, class: "btn btn-warning btn-xs shopping-cart-button") do %>
         <i class="fa fa-shopping-cart"></i> Carrinho
